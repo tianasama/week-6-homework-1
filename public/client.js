@@ -9,14 +9,6 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(data);
     console.groupEnd();
     
-   // Display the track name
-    // var trackName = $(
-    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
-    //   // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
-    // );
-    // trackName.appendTo('#search-track-container');
-     
-    
    //Display the track name
       var trackNameLink = document.createElement('a');
       var trackName = data.name;
@@ -35,9 +27,14 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById('search-track-container').append(h5);
     
     // Display the album art
-    var img = $('<img/>');
-    img.attr('src', data.album.images[0].url);
-    img.appendTo('#search-track-container');
+    //var img = $('<img/>');
+    //img.attr('src', data.album.images[0].url);
+    // img.appendTo('#search-track-container');
+    
+    var img = document.createElement('img');
+    img.getAttribute('src', data.album.images[0].url, 'alt', 'EARTHGANG - Young Thug');
+    document.getElementById('search-track-container').appendChild(img);
+    
   });
   
 
