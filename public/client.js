@@ -18,9 +18,10 @@
      
     
    //Display the track name
-      var trackName = document.createElement('href');
-      trackName.innerText = data.external_urls.spotify;
-      document.getElementById('#search-track-container').appendChild(trackName);
+      var trackNameLink = document.createElement('a');
+      var trackName = data.name;
+      trackNameLink.innerText = data.external_urls.spotify + data.name;
+      document.getElementById('search-track-container').appendChild(trackNameLink);
     
     // Display the artist name
     var artists = '';
@@ -48,8 +49,7 @@
     console.groupEnd();
     
     // Display the covers of the playlists
-    data
-      .forEach((c) => {
+    data.forEach((c) => {
       $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
       c.data.playlists.items.map(function(playlist, i) {
       var img = $('<img class="cover-image"/>');
@@ -112,7 +112,7 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
       
       var trackName = document.createElement('li');
       trackName.innerText = track.name;
-      document.getElementById('#top-tracks-container').appendChild(trackName);
+      document.getElementById('top-tracks-container').appendChild(trackName);
       
        });
       });
