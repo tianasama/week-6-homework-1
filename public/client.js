@@ -1,7 +1,8 @@
 // client-side js
 // run by the browser each time your view template is loaded
 
-$(function() {
+
+function foo(){
     
   fetch('/search-track').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
@@ -105,5 +106,5 @@ $(function() {
       trackName.appendTo('#top-tracks-container');
     });
   });
+};
 
-});
