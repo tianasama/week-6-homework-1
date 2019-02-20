@@ -24,7 +24,9 @@
     // document.getElementById('#search-track-container').appendChild(document.createElement
     //   ('<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>')); 
     
-    
+    function jsSearchTrack (elem) {
+      
+    }
     
     // Display the artist name
     var artists = '';
@@ -111,8 +113,13 @@
     
     // Display the audio features
     data.map(function(track, i) {
-      var trackName = $('<li>' + track.name + '</li>');
-      trackName.appendTo('#top-tracks-container');
+      // var trackName = $('<li>' + track.name + '</li>');
+      // trackName.appendTo('#top-tracks-container');
+      
+      var trackName = document.createElement('li');
+      trackName.innerText = track.name
+      document.getElementById('#top-tracks-container').appendChild(trackName);
+      
     });
   });
 
