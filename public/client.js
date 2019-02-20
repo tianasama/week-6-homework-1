@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // img.appendTo('#search-track-container');
     
     var img = document.createElement('img');
-    img.getAttribute('src', data.album.images[0].url, 'alt', 'EARTHGANG - Young Thug');
+    img.getAttribute('src', data.album.images[0].url);
     document.getElementById('search-track-container').appendChild(img);
     
   });
