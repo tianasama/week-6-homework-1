@@ -59,18 +59,16 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     // Display the audio features
     keys.map(function(key, i) {
       if (data.hasOwnProperty(key)) {
-        var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
-        feature.appendTo('#audio-features-container');
-        
-        // var featureParagraph = document.createElement('p');
-        // var featureSpan = document.createElement('span');
-        // featureSpan.className='big-number';
-        // var bigSpan = data[key].appendChild(featureSpan);
-        // var feature = featureParagraph.appendChild(bigSpan);
-        // document.getElementById('audio-features-container').appendChild(feature);
+        // var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
+        // feature.appendTo('#audio-features-container');
         
         var featureParagraph = document.createElement('p');
-        var feature 
+        var featureSpan = document.createElement('span');
+        featureSpan.className='big-number';
+        featureParagraph.innerText = featureSpan + key;
+        featureSpan.innerText = data[key];
+        document.getElementById('audio-features-container').appendChild(featureParagraph);
+        
         console.log('WE OUTCHEA!');
       }
     });
@@ -111,6 +109,8 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     data.genres.map(function(genre, i) {
       var genreItem = $('<p>' + genre + '</p>');
       genreItem.appendTo('#artist-container');
+      
+      //var genrePlace = document.C
     });
   });
   
