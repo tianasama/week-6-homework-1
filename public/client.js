@@ -10,6 +10,12 @@ document.addEventListener("DOMContentLoaded", function(){
     console.groupEnd();
     
    //Display the track name
+    // var trackName = $(
+    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
+    //   // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
+    // );
+    // trackName.appendTo('#search-track-container');
+    
       var trackNameLink = document.createElement('a');
       var trackName = data.name;
       trackNameLink.innerText = data.external_urls.spotify + data.name;
@@ -58,6 +64,23 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
       }
     });
   });
+  
+  //var featureParagraph = document.createElement(p);
+  //var feature
+  
+  // Display the track name
+    // var trackName = $(
+    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
+    //   // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
+    // );
+    // trackName.appendTo('#search-track-container');
+  
+  //
+      //var trackNameLink = document.createElement('a');
+      // var trackName = data.name;
+      // trackNameLink.innerText = data.external_urls.spotify + data.name;
+      // document.getElementById('search-track-container').appendChild(trackNameLink);
+  
   
   fetch('/artist').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
