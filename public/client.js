@@ -1,7 +1,7 @@
 // client-side js
 // run by the browser each time your view template is loaded
 
-
+document.addEventListener("DOMContentLoaded", function(){
     
   fetch('/search-track').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
@@ -40,22 +40,8 @@
     img.appendTo('#search-track-container');
   });
   
+
   
-  
-  fetch('/category-playlists').then(resp => resp.json()).then((data) => {
-    // "Data" is the object we get from the API. See server.js for the function that returns it.
-    console.group('%cResponse from /category-playlists', 'color: #F037A5; font-size: large');
-    console.log(data);
-    console.groupEnd();
-    
-    // Display the covers of the playlists
-    data.forEach((c) => {
-      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
-      c.data.playlists.items.map(function(playlist, i) {
-      var img = $('<img class="cover-image"/>');
-      img.attr('src', playlist.images[0].url);
-      img.appendTo('#category-playlists-container');
-  });
   
   
 fetch('/audio-features').then(resp => resp.json()).then((data) => {
@@ -116,5 +102,25 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
       
        });
       });
-     });
-   });
+  
+  
+  fetch('/category-playlists').then(resp => resp.json()).then((data) => {
+    // "Data" is the object we get from the API. See server.js for the function that returns it.
+    console.group('%cResponse from /category-playlists', 'color: #F037A5; font-size: large');
+    console.log(data);
+    console.groupEnd();
+    
+    // Display the covers of the playlists
+    data.forEach((c) => {
+      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
+      c.data.playlists.items.map(function(playlist, i) {
+      var img = $('<img class="cover-image"/>');
+      img.attr('src', playlist.images[0].url);
+      img.appendTo('#category-playlists-container');
+      });
+    });
+  });
+  
+  });
+  
+  
