@@ -10,19 +10,19 @@
     console.groupEnd();
     
    // Display the track name
-    // var trackName = $(
-    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
-    //   // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
-    // );
-    // trackName.appendTo('#search-track-container');
+    var trackName = $(
+      // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
+      `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
+    );
+    trackName.appendTo('#search-track-container');
     
     // var trackNameTitle = document.createElement("a");
     // var trackName = document.createElement("h3") + trackNameTitle;
     //   trackNameTitle.setattribute('href', data.external_urls.spotify + data.name );
     //   trackNameTitle.setattribute('target', "blank");
     
-    document.getElementById('#search-track-container').appendChild(document.createElement
-      ('<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>')); 
+    // document.getElementById('#search-track-container').appendChild(document.createElement
+    //   ('<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>')); 
     
     
     // Display the artist name
