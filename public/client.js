@@ -61,16 +61,22 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
       if (data.hasOwnProperty(key)) {
         var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
         feature.appendTo('#audio-features-container');
+        
+        // var featureParagraph = document.createElement('p');
+        // var featureSpan = document.createElement('span');
+        // featureSpan.className='big-number';
+        // var bigSpan = data[key].appendChild(featureSpan);
+        // var feature = featureParagraph.appendChild(bigSpan);
+        // document.getElementById('audio-features-container').appendChild(feature);
+        
+        var featureParagraph = document.createElement('p');
+        var feature 
+        console.log('WE OUTCHEA!');
       }
     });
   });
   
-  //
-  //var featureParagraph = document.createElement(p);
-  //var featureSpan = document.createElement(span);
-  //featureSpan.className='big-number';
-  //var bigSpan = data[key].appendChild(featureSpan);
-  //
+  
   
   // Display the track name
     // var trackName = $(
