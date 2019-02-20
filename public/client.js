@@ -1,7 +1,7 @@
 // client-side js
 // run by the browser each time your view template is loaded
 
-$(function() {
+
     
   fetch('/search-track').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
@@ -9,14 +9,15 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
-    // Display the track name
-    fetch('/search-track').then(resp => resp.json()).then((data) => {
-    var trackName = $(
-      // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
-      `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
-    );
-    trackName.appendTo('#search-track-container');
-  }
+   // Display the track name
+    // var trackName = $(
+    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
+    //   `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
+    // );
+    // trackName.appendTo('#search-track-container');
+    
+    var trackName = 
+    
     
     // Display the artist name
     var artists = '';
@@ -35,7 +36,9 @@ $(function() {
     img.appendTo('#search-track-container');
   });
   
-  $.get('/category-playlists', function(data) {
+  
+  
+  fetch('/category-playlists').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /category-playlists', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -53,7 +56,7 @@ $(function() {
     })
   });
   
-  $.get('/audio-features', function(data) {
+  fetch('/audio-features').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /audio-features', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -71,7 +74,7 @@ $(function() {
     });
   });
   
-  $.get('/artist', function(data) {
+  fetch('/artist').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /artist', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -93,7 +96,7 @@ $(function() {
     });
   });
   
-  $.get('/artist-top-tracks', function(data) {
+  fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /artist-top-tracks', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -106,4 +109,4 @@ $(function() {
     });
   });
 
-});
+
