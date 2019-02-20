@@ -15,9 +15,11 @@ $(function() {
     //   `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
     // );
     
-    var trackName 
-    trackName = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
-    trackName.appendChild('#search-track-container');
+    var trackName = document.createElement('<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>');
+    var searchTrackContainer = document.createTextNode
+    document.getElementById("search-track-container").appendChild(trackName);
+    // trackName.appendTo('#search-track-container');
+    
     
     // Display the artist name
     var artists = '';
