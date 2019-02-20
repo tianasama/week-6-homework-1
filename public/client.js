@@ -15,18 +15,12 @@
     //   // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
     // );
     // trackName.appendTo('#search-track-container');
+     
     
-    // var trackNameTitle = document.createElement("a");
-    // var trackName = document.createElement("h3") + trackNameTitle;
-    //   trackNameTitle.setattribute('href', data.external_urls.spotify + data.name );
-    //   trackNameTitle.setattribute('target', "blank");
-    
-    // document.getElementById('#search-track-container').appendChild(document.createElement
-    //   ('<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>')); 
-    
-    function jsSearchTrack (elem) {
-      
-    }
+   //Display the track name
+      var trackName = document.createElement('href');
+      trackName.innerText = data.external_urls.spotify;
+      document.getElementById('#search-track-container').appendChild(trackName);
     
     // Display the artist name
     var artists = '';
@@ -62,10 +56,10 @@
       img.attr('src', playlist.images[0].url);
       img.appendTo('#category-playlists-container');
     });
-    })
+    });
   });
   
-  fetch('/audio-features').then(resp => resp.json()).then((data) => {
+fetch(''/audio-features').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /audio-features', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -105,6 +99,7 @@
     });
   });
   
+  
   fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /artist-top-tracks', 'color: #F037A5; font-size: large');
@@ -117,7 +112,7 @@
       // trackName.appendTo('#top-tracks-container');
       
       var trackName = document.createElement('li');
-      trackName.innerText = track.name
+      trackName.innerText = track.name;
       document.getElementById('#top-tracks-container').appendChild(trackName);
       
     });
