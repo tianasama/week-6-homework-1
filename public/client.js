@@ -65,8 +65,12 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     });
   });
   
+  //
   //var featureParagraph = document.createElement(p);
-  //var feature
+  //var featureSpan = document.createElement(span);
+  //featureSpan.className='big-number';
+  //var bigSpan = data[key].appendChild(featureSpan);
+  //
   
   // Display the track name
     // var trackName = $(
