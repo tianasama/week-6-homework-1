@@ -15,8 +15,9 @@ $(function() {
     //   `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
     // );
     
-    var trackName = document.createElement ('<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>')
-    trackName.appendTo('#search-track-container');
+    var trackName 
+    trackName = '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>';
+    trackName.appendChild('#search-track-container');
     
     // Display the artist name
     var artists = '';
