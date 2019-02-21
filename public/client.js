@@ -128,9 +128,9 @@ fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     console.log(data);
     console.groupEnd();
     
-    // Display the covers of the playlists
+    // Display the covers of the playlists; still unsure how to do ${c.name}
     data.forEach((c) => {
-      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
+      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`) 
   //var playlistItem - document.createElement();  
   //document.getElementById('category-playlists-container').appendChild(x);
   
