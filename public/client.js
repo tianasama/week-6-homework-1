@@ -10,12 +10,6 @@ document.addEventListener("DOMContentLoaded", function(){
     console.groupEnd();
     
    //Display the track name
-    // var trackName = $(
-    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
-    //   // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
-    // );
-    // trackName.appendTo('#search-track-container');
-    
       var trackNameLink = document.createElement('a');
       var trackName = data.name;
       trackNameLink.innerText = data.external_urls.spotify + data.name;
@@ -61,34 +55,9 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
       if (data.hasOwnProperty(key)) {
         var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
         feature.appendTo('#audio-features-container');
-        
-//         var featureParagraph = document.createElement('p');
-//         var featureSpan = document.createElement('span');
-//         featureSpan.className='big-number';
-//         featureParagraph.innerText = featureSpan + key;
-//         featureSpan.innerText = data[key];
-//         document.getElementById('audio-features-container').appendChild(featureParagraph);
-        
-//         console.log('WE OUTCHEA!');
       }
     });
   });
-  
-  
-  
-  // Display the track name
-    // var trackName = $(
-    //   // '<h3><a href="' + data.external_urls.spotify + '" target="blank">' + data.name + '</a></h3>'
-    //   // `<h3><a href="${data.external_urls.spotify}">${data.name}</a></h3>`
-    // );
-    // trackName.appendTo('#search-track-container');
-  
-  //
-      //var trackNameLink = document.createElement('a');
-      // var trackName = data.name;
-      // trackNameLink.innerText = data.external_urls.spotify + data.name;
-      // document.getElementById('search-track-container').appendChild(trackNameLink);
-  
   
   fetch('/artist').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
@@ -109,16 +78,11 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     data.genres.map(function(genre, i) {
       var genreItem = $('<p>' + genre + '</p>');
       genreItem.appendTo('#artist-container');
-      
-      // var genreItem = document.createElement('p');
-      // genreItem.innerText = genre;
-      // document.getElementById('artist-container').appendChild(genreItem);
-      // console.log('SUP BOI')
     });
   });
   
   
-  fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
+fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /artist-top-tracks', 'color: #F037A5; font-size: large');
     console.log(data);
@@ -155,5 +119,4 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
   });
   
   });
-  
   
