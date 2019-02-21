@@ -39,6 +39,44 @@ document.addEventListener("DOMContentLoaded", function(){
     
   });
   
+  
+  fetch('/search-track-2').then(resp => resp.json()).then((data) => {
+    // "Data" is the object we get from the API. See server.js for the function that returns it.
+    console.group('%cResponse from /search-track-2', 'color: #4B9CD3; font-size: large');
+    console.log(data);
+    console.groupEnd();
+    
+   //Display the track name
+      var trackNameLink = document.createElement('a');
+      var trackName = data.name;
+      trackNameLink.innerText = data.external_urls.spotify + data.name;
+      document.getElementById('search-track-container-2').appendChild(trackNameLink);
+    
+    // Display the artist name
+    var artists = '';
+    
+    data.artists.forEach(function(item) {
+      artists = artists + item.name + ' ';
+    });
+    
+    let h5 = document.createElement('h5');
+    h5.innerText = artists;
+    document.getElementById('search-track-container-2').append(h5);
+    
+    // Display the album art
+    //var img = $('<img/>');
+    //img.attr('src', data.album.images[0].url);
+    // img.appendTo('#search-track-container');
+    
+    
+    //CONFUSED: Image outline showing up, but image itself not loading?
+    var img = document.createElement('img');
+    img.getAttribute('src', data.album.images[0].url);
+    document.getElementById('search-track-container-2').appendChild(img);
+    
+  });
+  
+  
 
   
   
@@ -101,6 +139,10 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
       
     });
   });
+  
+  
+  
+  
   
   
 fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
