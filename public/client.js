@@ -128,11 +128,12 @@ fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     console.log(data);
     console.groupEnd();
     
-    // Display the covers of the playlists; still unsure how to do ${c.name}
+    // Display the covers of the playlists
     data.forEach((c) => {
-      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`) 
-  //var playlistItem - document.createElement();  
-  //document.getElementById('category-playlists-container').appendChild(x);
+      // $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`);
+        var playlistItem = document.createElement('h1');  
+        playlistItem.innerText = c.name;
+        document.getElementById('category-playlists-container').appendChild(playlistItem);
   
       c.data.playlists.items.map(function(playlist, i) {
       // var img = $('<img class="cover-image"/>');
