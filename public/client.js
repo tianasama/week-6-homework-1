@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function(){
     //img.attr('src', data.album.images[0].url);
     // img.appendTo('#search-track-container');
     
+    
+    //CONFUSED: Image outline showing up, but image itself not loading?
     var img = document.createElement('img');
     img.getAttribute('src', data.album.images[0].url);
     document.getElementById('search-track-container').appendChild(img);
@@ -65,12 +67,16 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     console.log(data);
     console.groupEnd();
     
-    // Display the artist's image
-    var img = $('<img class="circle-image" />');
-    img.attr('src', data.images[0].url);
-    img.appendTo('#artist-container');
+    //Display the artist's image
+    // var img = $('<img class="circle-image" />');
+    // img.attr('src', data.images[0].url);
+    // img.appendTo('#artist-container');
     
-    //var img 
+    //CONFUSED: Image outline showing up, but image itself not loading?
+    var img = document.createElement('img');
+    img.className = 'circle-image';
+    document.querySelector('img').setAttribute('src', 'data.images[0].url');
+    document.getElementById('artist-container').appendChild(img);
     
     
     
