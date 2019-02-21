@@ -58,6 +58,7 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
         var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
         feature.appendTo('#audio-features-container');
       }
+      
     });
   });
   
@@ -131,13 +132,17 @@ fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     // Display the covers of the playlists
     data.forEach((c) => {
       $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
+      //document.getElementById('category-playlists-container').appendChild(x);
+  
       c.data.playlists.items.map(function(playlist, i) {
       var img = $('<img class="cover-image"/>');
       img.attr('src', playlist.images[0].url);
       img.appendTo('#category-playlists-container');
     
-    //var img = document.createElement('img');
-    //
+      //var img = document.createElement(img);
+      //img.className='cover-image';
+      //img.getAttribute('src', 'playlist.images[0].url');
+      //document.getElementById('category-playlists-container').appendChild(img);
     
     
       });
