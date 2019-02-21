@@ -70,14 +70,29 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     img.attr('src', data.images[0].url);
     img.appendTo('#artist-container');
     
-    // Display the artist name
-    var trackName = $('<h3>' + data.name + '</h3>');
-    trackName.appendTo('#artist-container');
+    //var img 
     
-    // Display the artist's genres
+    
+    
+    // Display the artist name - JQUERY
+    // var trackName = $('<h3>' + data.name + '</h3>');
+    // trackName.appendTo('#artist-container');
+    
+    var trackName = document.createElement('h3')
+    trackName.innerText = data.name
+    document.getElementById('artist-container').appendChild(trackName);
+    
+    
+    // Display the artist's genres - JQUERY
     data.genres.map(function(genre, i) {
-      var genreItem = $('<p>' + genre + '</p>');
-      genreItem.appendTo('#artist-container');
+      // var genreItem = $('<p>' + genre + '</p>');
+      // genreItem.appendTo('#artist-container');
+      
+      var genreItem = document.createElement('p');
+      genreItem.innerText = genre;
+      document.getElementById('artist-container').appendChild(genreItem);
+      console.log('yeah buddy');
+      
     });
   });
   
@@ -114,6 +129,11 @@ fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
       var img = $('<img class="cover-image"/>');
       img.attr('src', playlist.images[0].url);
       img.appendTo('#category-playlists-container');
+    
+    //var img = document.createElement('img');
+    //
+    
+    
       });
     });
   });
