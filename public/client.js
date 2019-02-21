@@ -52,7 +52,7 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     // The audio features we want to show
     var keys = ["danceability", "energy", "acousticness", "speechiness", "loudness"]
     
-    // Display the audio features
+    // Display the audio features - Question: What is the best way to nest in c
     keys.map(function(key, i) {
       if (data.hasOwnProperty(key)) {
         var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
