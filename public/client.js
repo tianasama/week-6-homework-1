@@ -76,7 +76,7 @@ fetch('/audio-features').then(resp => resp.json()).then((data) => {
     //CONFUSED: Image outline showing up, but image itself not loading?
     var img = document.createElement('img');
     img.className = 'circle-image';
-    document.querySelector('img').setAttribute('src', 'data.images[0].url');
+    document.querySelector('img').setAttribute('src', data.images[0].url);
     document.getElementById('artist-container').appendChild(img);
     
     
@@ -132,17 +132,20 @@ fetch('/artist-top-tracks').then(resp => resp.json()).then((data) => {
     // Display the covers of the playlists
     data.forEach((c) => {
       $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
-      //document.getElementById('category-playlists-container').appendChild(x);
+  //var playlistItem - document.createElement();  
+  //document.getElementById('category-playlists-container').appendChild(x);
   
       c.data.playlists.items.map(function(playlist, i) {
-      var img = $('<img class="cover-image"/>');
-      img.attr('src', playlist.images[0].url);
-      img.appendTo('#category-playlists-container');
+      // var img = $('<img class="cover-image"/>');
+      // img.attr('src', playlist.images[0].url);
+      // img.appendTo('#category-playlists-container');
     
-      //var img = document.createElement(img);
-      //img.className='cover-image';
-      //img.getAttribute('src', 'playlist.images[0].url');
-      //document.getElementById('category-playlists-container').appendChild(img);
+    
+    //Same issue with images again! :( Hmmm.....will investigate later
+      var img = document.createElement('img');
+      img.addClass='cover-image';
+      img.getAttribute('src', playlist.images[0].url);
+      document.getElementById('category-playlists-container').appendChild(img);
     
     
       });
